@@ -1,0 +1,79 @@
+Setting Up Windows to Build Using GNU Ada
+=============================================
+
+Simplest-installation of a 64-bit, stand-alone build system:
+
+Go to:
+
+	https://github.com/alire-project/GNAT-FSF-builds/releases
+
+and download the latest 64-bit windows system...
+as of September 2022, I downloaded:
+
+	gnat-x86_64-windows64-12.1.0-2.tar.gz
+
+Then unzip into a directory for which you have permissions, such as <HOME>/opt/
+
+Finally update your path:
+
+	PATH=<HOME>\opt\gnat-x86_64-windows64-12.1.0-2\bin;%PATH%
+
+and begin using gnatmake, g++, gcc, etc.
+
+
+=============================================
+	MINGW systems...
+=============================================
+
+mingw 32-bit build system:
+
+First install MinGW.
+Note that the default installation location is
+	c:\MinGW
+Then add "c:\MinGW\bin" to your path.
+
+Next type
+
+	mingw-get update
+	mingw-get upgrade
+
+These 2 commands grab & install the latest 
+GNU compilers, including Ada.
+
+Thusly, the following become usable :
+
+	gnatmake
+	g++
+	gcc
+	etc.
+
+=================================================
+
+mingw64 64-bit build system:
+
+First install MSYS2 into the default location:
+	c:\msys64
+Link:
+	https://www.msys2.org/
+
+Then, launch an msys2 window using msys2.exe.
+In that new window type:
+
+	NON-essential but interesting commands:
+ pacman -S -l | more (get exhaustive Listing available pkgs)
+ pacman -Suy (update msys2 + all installed pkgs)
+ paccache -r (remove old unused pkgs)
+
+	essential two commands:
+ pacman -S mingw-w64-x86_64-gcc (get basic GNU tools)
+ pacman -S mingw-w64-x86_64-gcc-ada (get GNU Ada)
+
+ ( ?perhaps the final pacman cmd is sufficient? )
+
+after which you may exit the msys2 window.
+
+Now, back in your usual Windows command prompt, you may add:
+	PATH=c:\msys64\mingw64\bin;%PATH%
+to your path in order to make visible the Ada and C++
+compilers: gnatmake, g++, etc.
+

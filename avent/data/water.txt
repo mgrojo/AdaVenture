@@ -1,0 +1,9 @@
+
+water.wav
+
+...is my own recording from Bear Lake Utah
+processed thru sox to reduce the dynamic range
+and adjust volume and length.
+
+It has a GPL v3.0 license.
+

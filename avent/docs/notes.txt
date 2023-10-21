@@ -1,0 +1,71 @@
+
+Some Detailed Rules for the classic Atari Adventure game:
+
+0) use spacebar to drop objects ?
+1) level 2 foggy maze has 3 or more exits,
+	each to different colored castles or else
+	different cycles of a similar maze.
+2) bat can be grabbed, along with whatever it's carrying;
+3) bat can grab stuff, even from our grasp, and
+	carry it around:  key, sword, bridge.
+	If it is already carrying an object, then that
+	object might get swapped with the one we carry.
+4) dragons might run away if we are carrying sword,
+	and return when we are not.
+5) needed objects can get stuck in walls...
+	must have magnet to get them out;
+
+#########################################################
+
+.) for alternative music, see:
+	~/sounds/incompetech/middle_east/*.ogg
+
+.) Xerxes the Great AKA Kheshayar Shah lived
+	in Persepolis.  His great love was Artemesia 
+	of Halicarnassius who was Grand Admiral and
+	leader of the Persian Navy;  yes, a female!
+
+#########################################################
+character mappings used in AdaVenture:
+--
+-- 0=49, A=66, Z=91, "_"=96, a=98, z=123
+-- NO NO, use 0-based numbers "A"=65, etc
+--
+-- bat1="{" =123
+-- blaKey="|"=124
+-- bat2="}" =125
+
+--     RedDra=")"=41
+-- Redkil="("=40
+--     BlaDra=">"=62
+-- Blakil="<"=60
+
+-- hand = "`"=96
+-- whiKey="~"=126
+-- greKey="^" = 94
+-- spider=":"=58
+-- cSword="="=61
+-- chalis=";"=59
+-- gnu="!"=33
+-- gatfar="$"=36
+-- gatner="%"=37
+
+-------- new mapping:
+0=hand
+1=gnu
+4=fargate
+5=neargate
+8=killRed
+9=redDrag
+11=spider
+12=chalice
+13=kilBlack
+14=sword
+15=blaDrag
+
+16=bat1
+17=bkey
+18=bat2
+19=wkey
+
+

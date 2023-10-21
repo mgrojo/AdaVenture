@@ -1,0 +1,20 @@
+AdaVenture is a kid-friendly retro point & click game, intended as a reincarnation in 3D of the original Atari game named "Adventure".  The mazes have interconnections that are impossible in 3 dimensions, but are painstakingly exact reproductions of those in the original game.  In fact, the "./mapRoom" subdirectory contains the original Atari maps to help guide you.  
+
+Runs on Windows, OSX, and most distros of Linux.
+
+Featuring
+. no installation
+. no dependencies
+. simply unzip in your Downloads directory, and run.
+
+=======================================================================
+
+アドベンチャーは、"冒険"という名前の元のアタリゲームの3Dで生まれ変わりとして意図された子供に優しいレトロなポイント＆クリックゲームです。 迷路は3次元では不可能な相互接続を持っていますが、元のゲームのものを苦労して正確に複製しています。 実際には、"。/map Room"サブディレクトリには、あなたを導くのに役立つオリジナルのAtariマップが含まれています。
+
+Windows、OSX、およびLinuxのほとんどのディストリビューション上で動作します。
+
+【特集】
+. インストールなし
+. 依存関係なし
+. 単にあなたのダウンロードディレクトリに解凍し、実行します。
+

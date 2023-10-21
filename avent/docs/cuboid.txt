@@ -1,0 +1,22 @@
+
+AdaGate/AdaVenture
+
+Partitioning of unit cube
+into minecraft Avatar:
+
+    ------------
+   /           /|
+  /           / |
+ /           /  |
+------------/  /|
+|  head     | / |
+|           |/  |
+------------/  /|
+| torso     | / |
+|           |/| | <--Rarm
+------------/ | |
+|     |     | | |
+|Lleg | Rleg| | /
+|     |     | |/
+|     |     | /
+-------------/

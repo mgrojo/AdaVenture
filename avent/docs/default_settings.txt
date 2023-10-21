@@ -1,0 +1,14 @@
+1.0
+1.0
+1.0
+1.0
+1.0
+
+# sensitivity settings (float) for:
+# 1) ForwardSpeed (fspd)
+# 2) MouseSlew (mslu)
+# 3) KeyboardSlew (kslu)
+# 4) Gamepad-Slew (gslu)
+# 5) Joystick-Slew (jslu)
+# suggest values between 0.5 and 2.0
+

@@ -1,0 +1,6 @@
+clouds		1024
+moon			1024
+sargasso		1024
+sunset		1024
+totality		1024
+tropicalsun	1024

@@ -1,0 +1,36 @@
+File extraction on Windows:
+
+If you have a previous installation of the game on your computer, 
+then delete it by typing something like:
+
+	RMDIR/S <game-installation-directory>\<game-dir>
+
+from a command line terminal.
+
+This will save space on your computer's disk drive, and will 
+help to avoid confusion.
+
+
+Next, move the newest archive, a 7z file 
+[from your Downloads directory] to any directory of your choosing:
+move <file-name>.extension <game-installation-directory>
+cd <game-installation-directory>
+
+Next, unzip:
+
+A) If you have it, PeaZip seems to work fine for all archive types.
+
+B) If you do not already have an unzip utility, I recommend 
+downloading 7z [from www.7-zip.org].  It's free, and works nicely:
+1) 7z x <file-name>.7z [this unzips contents to a new game-dir]
+2) cd <game-dir>
+
+Note that WSL [Windows Subsystem for Linux] is not supported.
+Simply use the Windows executable provided.
+
+Note also that any error messages you might see about failure to 
+create links can be IGNORED.  These linked files are used only 
+on linux or Mac OSX systems.
+
+Finally, from within the <gameDir> please delete any *.app subdirectories to save space and confusion. These are strictly for use on Mac/OSX systems. You will not be needing them. Here, again, you may use the command RMDIR/s <gameName.app>.
+

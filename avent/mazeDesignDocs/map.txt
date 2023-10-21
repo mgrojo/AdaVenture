@@ -1,0 +1,76 @@
+5c +10 +9 hpi
+5y -10 +9 -hpi
+5d +10 +4 hpi
+5z -10 +4 -hpi
+5e +10 +2 hpi
+5v -10 +2 -hpi
+5f +10  0 hpi
+5w -10  0 -hpi
+5g +10 -2 hpi
+5x -10 -2 -hpi
+5ex: 0 -10 pi
+===================
+6al +10 +9 hpi
+6c  -10 +9 -hpi
+6bl +10 +4 hpi
+6d  -10 +4 -hpi
+6v  +10 +2 hpi
+6e  -10 +2 -hpi
+6w  +10  0 hpi
+6f  -10  0 -hpi
+6x  +10 -2 hpi
+6g  -10 -2 -hpi
+6y  +10 -4 hpi
+6ar -10 -4 -hpi
+6z  +10 -9 hpi
+6br -10 -9 -hpi
+6ex   0 +10 0 [64] handled below
+===================
+7al -10 -9 -hpi
+7dr +10 -9 hpi
+7bl -10 -7 -hpi
+7er +10 -7 hpi
+7cl -10 -4 -hpi
+7fr +10 -4 hpi
+7dl -10 -2 -hpi
+7ar +10 -2 hpi
+7el -10  0 -hpi
+7br +10  0 hpi
+7fl -10 +3 -hpi
+7cr +10 +3 hpi
+7h  +10 +7 hpi [78]
+7ex: 0 -10 pi
+================
+8h -10 +7  -hpi  maze7 [87]
+8g +10 +7  hpi darkMaze9 [89]
+===================
+9fl -8 -10 pi
+9cr -6 +10  0
+9bl -5 -10 pi
+9al -1 -10 pi
+9fr +2 +10  0
+9cl +4 -10 pi
+9br +5 +10  0
+9ar +9 +10  0
+-------------
+9dt -10 -8 -hpi
+9et -10 -1 -hpi
+9db +10 -8 +hpi
+9eb +10 -1 +hpi
+
+9x: +10 +7 hpi [98]
+===================
+2e -5 -10 0
+2x -5 -10 pi
+===================
+interior exit from maze 5/7:
+1e: 0 -10 pi
+
+exterior entrance to maze 5/7:
+1x: 7 4.6 0
+
+temple entrance: 
+4e: 0 10 0 
+temple exit:  
+4x: 0 -10 pi
+

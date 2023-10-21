@@ -1,0 +1,21 @@
+
+level 4 changes from 2:
+
+.) portaGate harder to find in Lab8;
+
+.) M6,M7,M9 are darker
+
+.) Bkey in M7 is randomly positioned (3 possible);
+
+
+
+level 3 changes from 1:
+
+.) Wkey moved (exterior);
+
+.) exterior fog thicker, different color;
+
+.) Bkey in M5 is randomly positioned (3 possible);
+
+.) M4,M5 are darker
+

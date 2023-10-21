@@ -1,0 +1,49 @@
+
+   +098765432101234567890- Xaxis
+-------------------------
+
+Z=+10---------------------
+9 C                      Y
+8   ****** ******* ******
+7   * *       *       * *
+6   * * ***** * ***** * *
+5   *** *   * * *   * ***
+4 D     * * * * * * *  ? Z
+3   ***** * * *h*i*j*****
+
+3   ***** * * *h*i*j*****
+2 E     * * * ? * * *    V
+1   *** * * ***** * * ***
+0 F     * *   ?   * *    W
+-1  ***** ********* *****
+-2 G                      X
+...
+Z= -9              k   K
+Z=-10 ------ in ----------
+
+-------------------------
+   +098765432101234567890- Xaxis
+
+? = possible Bkey locations
+See gameutils.adb::3067=>walls
+
+			Z+
+			|
+			|
+	X+____o
+
+See scene6.txt for other possible
+locations for Bkey.
+
+in@(0,-10) = in-from-exterior-scene @(7,5)
+
+note:  compare scene5,scene6
+
+with file
+
+	best_blue_maze_map.jpg
+
+under
+
+~AVmedia/originalAdventure/
+

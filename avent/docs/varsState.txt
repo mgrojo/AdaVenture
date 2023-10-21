@@ -1,0 +1,51 @@
+Notes to self regarding resuming games:
+=================================================
+
+list of game-critical state variables:
+(for restarts, if possible)
+
+signal save with "v"-key
+
+...and write dump/load procs that creates 
+/ loads a gamestatefile with the following
+variables:
+
+==============================================
+BOOLEAN 20
+
+drawchalice, chalicegone,
+gateheld, [bgw]keyheld, swordheld, chaliceheld,
+
+[br]dragondead,
+minotaurdead,
+
+labopen, mazeopen, lionopen,
+
+gateopen,
+interior,
+
+bat1sent, bat5sent, bat7sent, bat9sent,
+
+
+============================================
+INTEGER 13
+
+chapter,
+scene,
+schalice, s[bgw]key, ssword,
+[ksrc]gate,
+bsdra,rsdra,
+
+============================================
+FLOAT 30
+
+[xyz]chalice,
+[xyz]me,
+[xyz]gate, (portableGate)
+[xyz][bgw]key,
+
+[rbm][xyz]dra
+
+[xyz]sword
+
+

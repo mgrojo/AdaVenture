@@ -1,0 +1,1194 @@
+
+AdaVenture 
+--for Windoow & Linux, using...
+* OpenAL 
+* thin GL/glfw3 bindings,
+* Felix Krause's FreeTypeAda [MIT-license],
+* Dmitry Kazakov's Tables, Strings_Edit [GNU GPL2 license].
+* Stephen Sangwine's AdaPngLib
+* ftex for TrueTypeFonts,
+* utex for special glyphs.
+
+
+Linux Build: AdaCore2016 on mint
+
+==========================================================
+todo:
+
+.) rebuild on OSX, Windows; then deliver
+
+.) need a regression test to check 3rd person avatar behavior
+	in various modes for camera slew speed.
+
+.) Needs a dark scary forest! Not part of "adventure" but
+	is a staple in most every other adventure game.
+	...as a short "tunnel"/labyrinth entryway to the mazes:
+	.) anthropomorphic tree/cactus
+	.) sounds of beasts
+	.) surreal starry sky
+	.) ground-hugging fog
+	.) ~/funPics/fun/baUglyTree2.jpg
+	.) see also ~/dev/DarkForest/
+
+.) regression test lab8 before & after M9.
+.) regression test zoomwheel (z-key to normalize).
+
+.) add red maze;
+.) add magnet to grab key from within wall;
+	then allow bat to drop key into wall.
+
+==========================================================
+
+
+20oct23
+.) Added check of window size when displaying list of saved games.
+.) Changed sort of saved games to show most recent first.
+
+
+#######################################################
+08oct23: uploaded v2.3.7 (w64) : git,SF,indie,itch,jolt
+#######################################################
+
+4oct23
+.) seems ready to upload.
+
+3oct23
+.) removed mac-bundle with no ill-effects other than not
+	being able to start the apple-way. Moreover, I found
+	that my restore-game method only works when starting
+	from the command line, albeit with some window-focus
+	qwirks.
+
+2oct23
+.) restored OSX build...my macbook ON switch works again...
+	even though keyboard is otherwise useless.
+
+16sep23
+.) found & fixed error where key_h did not act like key_i.
+
+5sep23
+.) bat now picks up sword (as planned)
+	when user drops it to grab black key (ch 1/3).
+	So this scripting of events has now been verified
+	as working.
+
+4sep23
+.) implemented ghostSword...now that bat can steal it!
+	Even if you drop it and forget where, this helps.
+.) tweaked lighting of copper arches during final celebration.
+
+#######################################################
+04sep23: uploaded v2.3.6 (w64) : git,SF,indie,itch,jolt
+#######################################################
+
+4sep23
+.) fixed error in code that restores saved games,
+	both on MsWin64 & linux.
+
+3sep23
+.) removed debug output from writestate.
+.) renamed minotaur?obj.?s, src+data.
+	This requires a rebuild of MsWin.
+
+#######################################################
+01sep23: uploaded v2.3.5 (w64) : git,SF,indie,itch,jolt
+#######################################################
+
+31aug23
+.) new save system...works!
+.) changed timestamp to avoid UTC.
+.) this new system is in games/xav/.
+
+30aug23
+.) amended minotaur + avatar so hands Y-coord forms an arc.
+.) also corrected quadripedal minotaur hind legs,
+	even tho bipedal one is now activated.
+
+24aug23
+.) enhanced pi/onepi to have 9 decimal digits.
+
+24aug23
+.) replaced quadripedal minotaur with a bipedal minotaur. 
+	See avent-setup_textures.adb::339.
+	This can easily be reversed, if desired.
+
+22jun23
+.) added an exception-driven autosave to help
+	.) me to debug;
+	.) user to resume game that aborted due to some
+		obscure coding error.
+		(MUST rename gamestatex.txt to gamestate.txt)
+	.) this does NOT autosave in the event of the
+		death of the avatar. Only a manual save will
+		help in that case.
+
+#######################################################
+23feb23: uploaded v2.3.4 to all (w32+w64)
+#######################################################
+
+10feb23
+.) added documentation of helpful ghost-key.
+.) If sword is dropped just before bat grabs Bkey, then
+	bat grabs sword instead. Applies to M5/6 level 1 & 3.
+	Currently, bat does not grab black key [M7] in lev 2,4.
+.) numerous other corrections made;
+.) corrected debug comment about which maze has Bkey.
+.) destination of bat's object drop: (x,z)=(0,2)
+	whether M5 or M6.
+
+9feb23
+.) reduced diam of 4 corner columns in castle to avoid
+	graphical anomaly.
+.) when bat attempts to grab black key (ch1/3)
+	after you get close to it, then if you pick it
+	up by dropping your sword, the bat now takes
+	the sword instead...
+	search "bkeyseen"/"bathassword" in 
+		gameutils.adb::sentBat/drawBat
+		avent-draw_maze5.adb (bottom...most change here).
+	Search "10feb23 addendum"
+
+
+#######################################################
+7feb23: uploaded v2.3.3 to all (w32+w64)
+#######################################################
+
+23jan23
+.) added 2 tunes from Kevin Macleod (ch3,ch4 finale).
+
+21jan23
+.) updated gameutils-updategamestate.adb::42..54
+	so that dangermusic stops & restarts properly;
+	adjusted constant "minonear" so anywhere inside 
+	inner rectangle causes bull to chase.
+
+19jan23
+.) added themesong during intro screen.
+
+
+#######################################################
+7jan23: uploaded v2.3.2 to all (w32+w64)
+#######################################################
+
+
+31dec22
+.) upgraded to better sounding "evil6.wav"
+	...crunching walk on man-eating scarabs.
+
+29dec22
+.) changed Greek altar to roseQuartz.
+.) added 4 corner pillars inside castle (brown marble).
+.) changed name "beetle" to "scarab" (avent.adb)
+.) added critical "bridge" hint for young gamers that have
+	not played the original Atari Adventure.
+
+28dec22
+.) improved trksh-wav-loop;
+	recovered original long versions from S.F.
+	to ~/dev/assetsSnd/adaventure/
+
+26dec22
+.) Added low fence at boundary of castle's exterior scene.
+.) Added palms @ corners of maze area.
+
+
+#######################################################
+30sep22: uploaded v2.3.1 to all +fsf (w32+w64)
+#######################################################
+
+22sep22
+.) found simpler gnat to use for w64
+	thanks to Fabien Chouteau.
+
+#######################################################
+20sep22: uploaded v2.3.0 to all +fsf
+#######################################################
+
+19sep22
+.) restored 64-bit Windows build using msys64 & mingw64
+	& GNU Ada.
+
+
+13sep22:
+.) elliminated usage of AdaCore compiler on linux.
+
+16may22:
+.) eliminated W32 build due to poor compiler support.
+
+
+#######################################################
+16apr22: uploaded v2.2.8 to all +fsf +osdn
+#######################################################
+
+14apr22:
+.) converted gnu-libs to all shared to enhance portability
+	of both build-scripts and executables.
+
+
+9feb22:
+.) important improvements to zoomwheel function now
+	updates "camdist" automatically, when using
+	mouse-wheel.
+.) added zoomwheel.zdefault.
+.) still nice function of n, f, z keys too.
+
+
+18jan22:
+.) Updated zoomwheel.adb to respect zmin, zmax.
+
+
+#######################################################
+18jan22: uploaded v2.2.7 to all +fsf +osdn
+#######################################################
+
+16jan22:
+.) tried sl79 linux static libfreetype.a, libpng16.a
+	and they work fine.
+
+15jan22:
+.) eliminated unused Frameworks directory.
+.) Updated to use freetype.dll (v2.11.1); w32 & w64.
+
+8jan22:
+.) updated to GLFW v3.3.6;
+	updated linux script;
+	updated libs (osx,gnu,wxx);
+	added glfw.txt identifying as v3.3.6.
+
+1jan22:
+.) updated ocmp.sh to avoid Xcode.
+
+31dec21:
+.) hid unused: data/otexobj.vs, data/owindtexFog.vs
+	Delete in a few weeks stuff in data/hide/.
+.) updated shaders in data/olderVersions/*
+	to eliminate NM, NormalMatrix...
+	since such usage is only required with
+	a changing ModelMatrix.
+
+24dec21:
+.) added few "return" statements near beginning of
+	keyboard event handler.
+
+#######################################################
+17dec21: uploaded v2.2.6 to all+fsf+osdn
+#######################################################
+
+16dec21:
+.) Updated all sounds to GPLv3-compatible licenses;
+.) Improved lab8 sounds, both ways.
+	.) always play atmos8 (rainForest) Done.
+	.) play dang8 (ibeat) when near fireball/minotaur
+
+4dec21:
+.) Delivered to F.S.F. latest version from S.F.
+
+28nov21:
+.) h-key now toggles Help screen, just as the i-key.
+.) Found yet another build method for OSX that
+	does not require making liboal.so first, and
+	which avoids nasty sync message for both
+	AdaCore and for GNU Ada. I added "-lstdc++"
+	instead of "-lc++". Also used explicit
+	directories for linking.
+
+22nov21:
+.) Added build script for GNU Ada on OSX that
+	use Xcode g++ to build oal.o, as with AdaCore.
+	I also have another build method that avoids Xcode
+	if I create liboal.so and properly set its
+	"install_name". This should work for AdaCore also.
+
+
+#######################################################
+17nov21: uploaded v2.2.5 to all
+#######################################################
+
+15nov21:
+.) Now exits start screen using normal window exit.
+.) Improved Windows build scripts. No setpath needed.
+
+12nov21:
+.) After full update of glfw libs and scripts, I successfully 
+	rebuilt all EXEs => all scripts are good...
+	gnu(AC,sl),gnat(sl),w32,w64,osx.
+
+8nov21:
+.) added script to demonstrate using GNAT on linux.
+	Must use static libgnarl, intrinsic to GNAT.
+
+2nov21:
+.) removed mipmap statement in ftex.adb that
+	occasioanally generated an OpenGL error
+	(on some graphics drivers).
+
+30oct21:
+.) shall [continue to] use AdaCore on SL79 
+	for linux builds! Even that may be overkill,
+	since it only gains linux systems between
+	2010 to 2012. I might as well use Mint.
+	See games/libgnuEg/readme.txt.
+
+28oct21:
+.) modified gameutils.adb by deleting
+	ada.characters.handling.is_line_terminator(ch)
+		(ada 2012)
+	and replacing with
+	character'pos(ch)=13) @ line 214
+		(ada < 2012)
+	Note that the old gnat on sl79 is before 2012.
+
+27oct21:
+.) finalized gcmp.sh to properly compile under GNU/GNAT.
+	Main element is need for adjusting libfreetype*
+	using patchelf.
+
+#######################################################
+24oct21: uploaded v2.2.4 to all
+#######################################################
+
+24oct21:
+.) created 32-bit Windows build, also.
+
+22oct21:
+.) updated glext64.lib [Win64].
+.) removed copy from libs/w64ming
+
+21oct21:
+.) refined libraries...
+	.) moved libfreetype.a to libs/w64ming/libfreetype.a
+	.) added libs/w64ming/libglfw3dll.a per recommendation.
+
+20oct21:
+.) Improved adaOpenAL code.
+.) Now buildable under GNAT & all versions of AdaCore Ada.
+
+
+#######################################################
+18apr21: uploaded v2.2.3 to all
+#######################################################
+
+17apr21:
+.) in scene1 = exterior...added tree trunk avoidance code 
+	in moveforward and movebackward.  
+	Somewhat ugly implementation, but works fine.
+
+12apr21:
+.) refined black key placement in chapter 3 to possibly
+	lie in M5 or M6; updated map to match.
+.) tested again that exitting beetle domain ends danger
+	of death. Done, good!
+.) tested random key placement code by forcibly assigning 
+	a value and using map to check.
+
+10apr21:
+.) added nicer maze door with the Zoroastrian symbol
+	of Farvahar and Arabic warning.
+.) modified moveforw*/moveback* to adjust BOTH xme AND zme,
+	if necessary. Seems to work well; and might preclude
+	getting stuck after being wrongly allowed to
+	cross a KeepOut barrier (as I did once in m9 hedge).
+.) M6: adjusted bug domain from x in [-8,+8] to x in [-6,+6]
+	.) avoids bugs in unwanted adjacent nooks where bkey
+		may be hiding. Done...looks good. Then added a
+		dark crevice on grass floor @ x=+/-6;  -7<z<-5 Done!
+.)	verified & improved ~/mazeDesignDocs/ M5.txt & M7.txt
+	and show on them the beetle domain as well as possible
+	bkey positions.
+
+
+#######################################################
+10apr21: uploaded v2.2.2 to all
+#######################################################
+
+
+09apr21:
+.) repaired broken logic that forced death-by-beetles.
+.) enhanced maps of mazes 7,5 to show possible
+	key locations. Added white key on ceiling to help
+	find black key in ch3.M5/ch4.M7 since it is
+	placed randomly.
+
+05apr21:
+.) added bow-slots to castle towers.
+.) slightly raised reflective pool edges to attempt
+	to prevent getting stuck inside pool.
+
+31mar21:
+.) commented-out *bluewood*
+.) moved unused png files to data/hide/
+
+30mar21:
+.) improved color of zoroastrian image on castle.
+.) made castle front wall thicker to fill
+	gap w/inner wall.
+.) improved golden metallic alcove coloring/lighting.
+
+
+27mar21:
+.) eliminated *ao* (the do-nothing 5th texture layer)
+	from source code.
+	.) adjusted rusty.fs to match...
+		note rusty does NOT have Fog code, but I do not
+		plan on fog within the castle.
+
+#######################################################
+27mar21: uploaded v2.2.1 to all
+#######################################################
+
+27mar21:
+.) removed click sound from water.wav
+
+26mar21:
+.) made magnificently-lit copper cornices @ top of each 
+	marble pillar.
+
+25mar21:
+.) tweaked castle column-arches
+.) current texture is set to erodedCopper.
+
+18mar21:
+.) added glfw v3.3.2 libs for win64...
+	will update with ver 3.3.4 asap.
+
+13mar21:
+.) moved danger/death messages from
+	y=0.5 to y=0.75 nearer top of screen...
+	for 1 reason: avoid conflict with icon @
+	screen center in case user is holding an object.
+
+23feb21:
+.) added beetle-warning. Search "warn_bug" (avent.adb).
+	Should probably run 1 more test: "adaventure_gnu 6"
+
+19nov20:
+.) added guard statement in snd4ada.adb::playSnd().
+
+
+#######################################################
+06nov20: uploaded v2.2.0 to all
+#######################################################
+
+5nov20:
+.) recompiled all 3 builds.
+	Note that technical quirks with AdaCore for Win32
+	now prevent including a 32-bit build on Windows
+	because of their interaction with OpenAL sound.
+
+
+5nov20:
+.) installed new OpenAL sound system with dynamic sizing.
+.) reduced size FTTB of misrlu, turkish WAV files.
+.) fixed several bogus WAV files before adaventure
+	would run. Seems Ok now.
+
+28oct20:
+.) eliminated "_hpp" from all filenames and code,
+	to match newer sound codes.
+
+21oct20:
+.) slight fiddling with scripts...
+	Make sure all still work properly.
+
+
+#######################################################
+17sep20: uploaded v2.1.8 to all
+#######################################################
+
+16sep20:
+.) created launcher "adaventure.bat" for Windows users.
+
+#######################################################
+1jul20: uploaded v2.1.7 to all
+#######################################################
+
+1jul20:
+.) updated binary libraries for osx, mswin.
+
+30jun20:
+.) Repaired floor-bug offset to +0.03 to eliminate
+	texture flicker combat versus grass.
+
+18jun20:
+.) changed glfw3.ads binding to assure intended sizes
+	of unsigned integer types are explicitly declared.
+	.) test on OSX, Windows:  Good!
+
+28may20:
+.) added critical check within drawbugs that the scene
+	is either 6[ch1/3] or 7[ch2/4].
+.) added "cuboid.txt" to explain avatarobj.adb.
+
+21may20:
+.) added screenbugs to M6,M7 when imdead_bugs occurs
+	climbing from bottom of screen to top, as if they
+	are overwhelming you in 1st person; in 3rd person
+	the avatar falls to ground.
+	See gu-screenbugs.adb.
+
+20may20:
+.) refactored common code into gameutils-drawbugs.adb 
+	to serve both maze6, maze7;
+	but also to set pattern so I can extend to drawing
+	bugs across view screen. 
+
+
+#######################################################
+30apr20: uploaded v2.1.6 to all
+#######################################################
+
+29apr29:
+.) moved get-screen-sizes to right before main loop;
+
+
+#######################################################
+29apr20: uploaded v2.1.6 to all
+#######################################################
+
+28apr20:
+.) found & fixed failure to call glViewPort(0,0,Fwid,Fhit)
+.) simplified init code;
+.) works perfectly now;
+
+
+#######################################################
+17apr20: uploaded v2.1.5 to all
+#######################################################
+
+16apr20:
+.) Now perform a redhatKin test before calling glfw-fullscreen
+	workaround, if necessary. Tests perfectly.
+
+13apr20:
+.) changed headers in all shaders to "330 core"
+	rather than "410 core" so older OpenGL drivers
+	would not cause abort.
+
+
+11apr20:
+.) updated glfw to v3.3.2 [built on sl77];
+
+
+#######################################################
+30mar20: uploaded v2.1.4 to all
+#######################################################
+
+
+29mar20:
+.) updated linux code to assure proper retrieval of PID
+	for later killing.
+
+
+27jan20:
+.) might have fixed occasional tasking error...
+	kill is now blocking;
+.) better error msgs from tasks.
+
+
+#######################################################
+26jan20 : REuploaded v2.1.2 to all
+#######################################################
+
+26jan20:
+.) improved task code.
+	Seems Ok on NUC (but debug=true);
+
+
+#######################################################
+23jan20 (7am) : uploaded v2.1.2 to all
+#######################################################
+
+22jan20 (8am):
+.) MUCH improved robustness of music task
+	so that critical steps are "protected"
+	in their own subtask.
+
+
+#######################################################
+22jan20 (7am) : uploaded v2.1.1 to all
+#######################################################
+
+21jan20:
+.) checked volume using aplay if *.wav
+	and all seemed Ok as is.
+.) trimmed a few large *.wav files.
+
+
+21jan20:
+.) modified each sound loop task to use a unique 
+	identifier for its PID-file.
+	This might make ada sound task more robust.
+.) Now using delay in sndloop.adb of 0.25sec (was 0.5)
+	before trying to read the PID file.
+
+
+#######################################################
+20jan20: uploaded v2.1.0 to all
+#######################################################
+
+20jan20:
+.) Built new sound system for linux that avoids the
+	SFML libraries for greatly enhanced linux portability.
+	This involves Ada tasking to implement sound loops.
+.)	A Key adjustment was necessary that adds a 0.2 second
+	buffer to the loop duration input to ensure loop ends
+	BEFORE allowing the Ada Task to try to replay it.  
+	See adautils/sndloop.adb.
+.) Tested on Redhat(SL77) & debian-based(Mint).
+
+
+
+
+#######################################################
+15jan20: uploaded v2.0.6 to all
+#######################################################
+
+14jan20:
+.) verified gameutils-readgamestate.adb is robust.
+.) now exclude libm/libz in linux version;
+	This is likely to enhance portability.
+
+11jan20:
+.) updated to glfw331 adabinding.
+
+
+#######################################################
+11jan20: uploaded v2.0.5 to all
+#######################################################
+
+10jan20:
+.) modified Selection Screen so that
+	.) if a saved game exists, I now show an option 
+		@ center-screen to resume saved game.
+	.) this eliminates commandline question and
+		response so that OSX won't need to have a 
+		special exception when running the "bundle".
+
+10jan20:
+.) updated to glfw v3.3.1
+.) fixed error in softlink :
+	~/adaventure.app/Contents/Resources/data
+	that disabled OSX-bundle.
+.) fixed OSX-bundle by disallowing commandline
+	interaction when executing as bundle.
+	This means if you want to resume a game,
+	you will need to start it from the command
+	line.
+
+9jan20:
+.) robustified reading of settings.txt
+	Even handles ff=dos.
+
+
+
+#######################################################
+09jan20: uploaded v2.0.4 to all
+#######################################################
+
+
+
+8jan20:
+.) removed bad code that doubled mouse slew speed @ HiDpi
+.) seems reasonable, for now.
+.) enabled 4th marble pool edge in castle.
+.) added ~/data/settings.txt file to allow users to adjust
+	forward/backward speed, and slew speed of:
+	.) keys
+	.) mouse
+	.) GamePad
+	.) Joystick
+
+
+7jan20:
+.) added reflective water in castle pool...awesome.
+.) In "osx-setup.txt" I documented how to disable HighDpi
+	on Mac OSX.
+
+
+
+#######################################################
+07jan20: uploaded v2.0.3 to all
+#######################################################
+
+6jan20:
+.) removed ~/libs/w64ming/libz*810.a;  
+	replaced with ~/binw64/zlib1.dll
+.) adjusted script wcmp64a.bat
+.) Now, ALL use zlib1.dll, rather than libz*.a
+
+
+31dec19:
+.) Final revisions to windows build scripts to prefer
+	the use of DLLs or libs in the ./binwxx/ runtime
+	directory over [now hidden] libs in ./libs/wxxming/.
+	Also now using most recent libz* file.
+
+
+29dec19:
+.) revised OSX,W32 build scripts to build and use
+	libsnd4ada.a, rather than use snd4ada.o
+.) put others into ./auxScripts/
+
+
+#######################################################
+25dec19: uploaded v2.0.2 to gitHub, SF
+#######################################################
+
+25dec19:
+.) repaired sluggish fireball.
+
+24dec19:
+.) finalized joystik code.
+	Works fine!
+
+
+#######################################################
+24dec19: uploaded v2.0.1 to gitHub, SF
+#######################################################
+
+24dec19:
+.) revised handling of boldtime, foldtime, oldTimeKb.
+.) Fixed definition of (Fwid,Fhit)
+
+
+#######################################################
+23dec19: uploaded v2.0.0 to gitHub, SF
+#######################################################
+
+23dec19:
+.) achieved basic function on gamepad.
+	.) might want to switch up/down (gc_look)
+
+22dec19:
+.) put finishing touches...
+	.) Needed proper DLLs;
+	.) needed fix to mouse_move;
+	.) added system detection code (gametypes.ads);
+		Works off executable names.
+	.) added normalization to turn rates;
+	.) removed unneeded rawmouse code.
+
+
+21dec19:
+.) bifurcated this directory for GLFW effort.
+.) converted to GLFW;
+.) initial rough cut on code...
+.) compiles Ok now.
+.) runs with basic capabilities
+
+
+19dec19:
+.) modified 5 files in sdlada
+
+#######################################################
+19dec19: uploaded v1.5.7 to itch, git, indi, SF, Jolt # 
+#######################################################
+
+19dec19:
+.) reversed default on HiDpi for AdaVenture because
+	it is typically NOT a problem on old MacBooks:
+	.) no commandline parm => HiDpi
+	.) commandline parm of "0" => NOT hidpi
+.) installed freshly built Ada binding to SDL2
+	v2.0.10 that is minimal and functions well.
+
+
+18dec19:
+.) updated to sdl2 v2.0.10:  DLLs, libs, scripts.
+
+17dec19:
+.) improvement in ftex.adb to reduce text aliasing.
+.) Also, nice coding cleanup.
+
+
+30nov19:
+.) removed sdl_button_x1/x2 from sdl binding;
+.) added explanatory comments sdl_mouse_h.ads
+
+#######################################################
+30nov19: uploaded v1.5.6 to itch, git, indi, SF, Jolt # 
+#######################################################
+
+
+29nov19:
+.) revised, improved im_dead sounds, code.
+.) now built High+Low Dpi EXEs for Mac/OSX.
+
+28nov19:
+.) reduced scale of largest *.png files.
+.) deleted a few unused png files, two *.fs files.
+.) Now you die if lingering amongst the bugs for 15 seconds.
+
+
+#######################################################
+26nov19: uploaded v1.5.5 to itch, git, indi, SF, Jolt # 
+#######################################################
+
+26nov19:
+.) Upgraded linux mint and discovered library problems.
+.) Repaired a library problem with GNU/Linux build that limited portability.
+
+24nov19:
+.) M9: added hole in ceiling with frame & sky shader;
+.) C2: added stargate frame for skylight.
+.) M9: only 1 wall + ceiling show reflected light.
+	(Xm+Yp) using cheap trick.
+
+#######################################################
+19nov19: uploaded v1.5.4 to itch, git, indi, SF, Jolt # 
+#######################################################
+
+18nov19:
+.) created [unused] topless room object troomobj.adb
+	in case skybox (top) would be used at higher Y-level 
+	than room top.
+.) removed fragshader ceiling in lab8 because the default
+	texture is awesome!  Same for m7, m5,m6.
+.) ALSO, lowered height of all mazes+lab8 for that
+	added closed-in feeling.  Note that trying to
+	change iymax SHOULD be Ok too, BUT it broke the
+	visibility thru interconnecting doors in mazes
+	5,6,7.  Also I like a temple being twice as high
+	as maze 6.
+.) See src/toplessMazeSky.adb for code to possibly add to
+	mazes that uses same skybox-sky as exterior.  And I
+	expect that might cause unforseen additional problems.
+.) did full runthru ch 1,2.  Seems Ok.
+
+
+17nov19:
+.) beetles: added small sideways motion to match small tilt.
+
+16nov19:
+.) Added evilBeetles that swarm directionally over a
+	rectangular area with scary sound.
+	.) note castle floor @ y=0, while maze floors @ y=-iymax.
+	.) note: overlapping beetles will cause graphical anomalies
+		since all @ exactly same height!
+.) perfected params:
+	mxbo=60, mzbo=25, beetrr=0.1, bugspeed=0.9, angrot=halfpi
+	m6: bxc=0, bzc=-7.5, bxr=8, bzr=2.5,  music test zme<-4.5
+	m7: bxc=-5, bzc=8, bxr=5, bzr=2.5,  music test zme>5, xme<0
+.) new angrot=halfpi hides beetles source/sink.
+	Perfect!!!
+.) staggered rows & cols.
+
+
+14nov19:
+.) added dama8 musicLoop in return thru lab8, NICE.
+
+
+31oct19:
+.) changed save msg delay from 5 to 3 seconds;
+
+#######################################################
+31oct19: uploaded v1.5.3 to itch, git, indi, SF, Jolt # 
+#######################################################
+
+30oct19:
+.) fixed several errors;  needs more testing;
+	Pretty good now, I think.
+.)	Now print save-message.
+.) Now restart music in lab8 when appropriate.
+.) NOTE: when resuming old state it seemed necessary in
+	MSwin to add call to "sdl_RaiseWindow(mainWindow)" in order
+	that focus be restored to main window.  I do NOT
+	know why!
+
+29oct19:
+.) Attempting resume capability...
+.) completed writeState/readState procs;
+	Need to test existence of statefile @ beginning;
+	rewrite it if saving exit...DONE
+.) Still many problems
+
+28oct19:
+.) removed unused "pauseatlevelchange" variable 
+	(gameutils.adb, gametypes.ads);
+.) similarly removed "forwardok", "badHoriAng".
+.) changed from glfloat to float:  [xyz]chalice.
+
+#######################################################
+04jul19: Reloaded v1.5.2 to itch, git, indi, SF, Jolt # 
+#######################################################
+
+2jul19:
+.) repaired missing wall error in maze5 that made it too easy.
+.) repaired scene9.txt map details of maze9...
+	created by a printout from code.
+.) detailed check m5,m6,m7 versus scene567...Ok now,
+	after minor addition to M7.
+
+#######################################################
+02jul19: Reloaded v1.5.2 to itch, git, indi, SF, Jolt # 
+#######################################################
+
+1jul19:
+.) randomized black key location in 
+	.) chapter3 maze5 (3)
+	.) chapter4 maze7 (6)
+	.) checked validity of each location.
+
+#######################################################
+01jul19: uploaded v1.5.2 to itch, git, indi, SF, Jolt # 
+#######################################################
+
+30jun19:
+.) Upgraded turkish.ogg to stereo.
+.) improved exterior fog so that sky, trees, & land are
+	all conformal.
+.) moved portable gate in lab8 for chapter 4
+	further toward entrance to M9.
+.)	Made Fog exceptions for lab8, maze9, where lighting
+	and colors are more critical for these two rooms.
+
+29jun19:
+.) debug ch4/m9 by using "adaventure_gnu 10".
+.) added 2more chapters with dark heavy fog for M567,
+	with different key pos defaults;
+.) improved look of exterior skybox/terrain fog;
+.) darkened avatar inside darkmazes.
+
+24jun19:
+.) further mods to SDL binding for ease of use;
+	Need to test run. Done...Ok.
+
+23jun19:
+.) updated to new SDL2-v209 binding;  seems to compile;
+
+21jun19:
+.) updated sdl to v209;  passed validation check;
+
+
+#######################################################
+28mar19: uploaded v1.5.1 to itch, git, indi, SF, Jolt # 
+#######################################################
+
+27mar19:
+.) tried/failed to join exterior with m5/m7.
+	Too many serious obstacles. (../xavBad/).
+	...would need complete discard outside doorway
+	to hide interior sky, etc.
+
+26mar19:
+.) got portal 8/9 working!!!  
+	Had to rearrange Maze #9.
+	Needs testing....seems to work well.
+	Final test:  try passing thru the various 
+	M9 inter-connections to ensure threshold
+	coordinates/angles are acceptable.
+	When done, move ./xav/ to ./avent/.
+.) note:  changing/resetting "?cam"
+	is quite essential in 3rd person mode.
+
+
+25mar19:
+.) got portal 7/8 working!!!
+
+
+#######################################################
+25mar19: uploaded v1.5.0 to itch, git, indi, SF, Jolt # 
+#######################################################
+
+
+24mar19:
+.) xav0.7z is first save with good inner maze transitions
+	before trying inter-maze transitions.
+.) tried/failed to see lab8 from maze9 (../xxav/) !!!
+.) need more testing: 7 9.  Now seems Ok, after
+	increasing maxnko from 500 to 599, and correcting
+	maze edge handling in maze7 due to swapping of X/Z 
+	(Rows/Cols) in avent-setup_maze7.adb.
+
+23mar19:
+.) new paradigm works Ok & looks great:  see thru in-maze
+	doorways.  Only open 1 door at a time (+ its couterpart) 
+	on nearest NoSo wall, and nearest EaWe wall;  so only
+	draw 1 or 2 adjacent rooms thru each open door.
+	skip lab8;  only attempt with (5/6)(7)(9).
+	Do not open any other transition doors.
+
+
+20mar19:
+.) updated fog...sqrt(dist)*exp(-0.9*H) 
+	where H=(aPos.y+iymax)/iymax in 0..2
+	.) snakeFog.fs
+	.) texnewHole.fs
+	.) texobjShine.fs
+.) reduced fog to level 2 in mazes
+	.) 5,6,7
+
+7mar19:
+.) removed unneeded glew32.dll from 64-bit Windows compile.
+
+
+3mar19:
+.) determined that HiContrast fonts is possible
+	but not used because they exhibited ugly aliasing;
+.) removed unneeded adabindings/text/
+
+17jan19:
+.) perfected compilation scripts to include -D ...
+	*.bat, *.sh
+
+
+#######################################################
+28dec18: uploaded v1.4.0 to itch, git, indi, SF, Jolt # 
+#######################################################
+
+28dec18:
+.) conformalized gamePad controls versus AG;
+	Revised default_settings.txt.
+
+17dec18:
+.) made z-key [return to default zoom] incremental
+	like the other zoom keys n & f;
+
+
+
+#######################################################
+12dec18: uploaded v1.3.9 to itch, git, indi, SF, Jolt # 
+#######################################################
+
+10dec18:
+.) reenabled OSX trackpad zoom with slight mod.
+	Seems Ok on seven, so should be Ok here.
+
+8dec18:
+.) added zoom keys z,n,f;
+.) MouseWheel zoom disabled on OSX;
+.) camera zoom changes now show even while stopped;
+
+
+########################################################
+7dec18: uploaded v1.3.8 to itch, git, indi, SF, Jolt # 
+########################################################
+
+7dec18:
+.) disabled mouse wheel zoom on OSX;
+
+6dec18:
+.) Improved compile script...if we include libsnd4ada.so,
+	then we do NOT need libsndio*, libasound*.
+
+1dec18:
+.) added exterior wind sound;
+
+#########################################################
+27nov18:  uploaded to gamejolt; announced on GOL;
+#########################################################
+
+######################################################
+23aug18: REuploaded v1.3.7 to itch, github, indie, SF 
+######################################################
+
+22aug18:
+.) removed some platform-specific files from sdl208ada.
+.) need to retest on osx, windows.
+
+20aug18:
+.) upgraded my sdl2 adabinding to version 2.0.8;
+.) updated builds for all 4 platforms to sdl208;
+
+17aug18:
+.) all platforms now use sdl207;
+
+5aug18:
+.) renamed avatarobj to avatarolay.ad? to distinguish
+	from version without overlay for Ag.
+.) STILL used for Minotaur too...
+	?should I use simpler avatarobj.ad? instead?
+
+3aug18:
+.) fixed avatarobj.adb and avatarobj.vs to eliminate
+	strange X-scaling of arms, legs (per AG).
+
+31jul18:
+.) improved snake texture after fixing pngloader::410;
+
+28jul18: sfml status:  now completely 250!
+.) osx:  250
+.) win32: 250 (was 242)
+.) win64: 250
+.) linux: 250 (was 242)
+
+
+######################################################
+28jul18: REuploaded v1.3.6 to itch, github, indie, SF 
+######################################################
+
+27jul18:  updated ocmpss.sh to 
+.) use new AC2018
+.) use sfml250
+.) all scripts:  replace dmitri/ with text/
+	(in coordination with latest OpenGLAda release)
+
+
+######################################################
+24jul18: uploaded v1.3.6 to itch, github, indie, SF 
+######################################################
+
+23jul18:
+.) added alternative shared-lib-build scripts for OSX, 
+	and the Frameworks to support them;  but not used
+	to build the delivered exe.
+
+21jul18:
+.) added credit to Korla Pandit in closing scene.
+
+9jul18:
+.) now using more compatible linux libfreetype;
+
+4jul18:
+.) corrected handling of DOS-formatted config files,
+	in case users' editors create one.
+
+######################################################
+1jul18: uploaded v1.3.4 to itch, github, indie, SF 
+######################################################
+
+1jul18:
+.) recompiled linux version because libSDL* was linked
+	to my system libs...
+	...I have since REMOVED all my build-system 
+	SDL2 libs and now deliver local libz, libm files.
+.) reDelivered uploads.
+
+29jun18:
+.) now using Anisimkov's corrections, rather than
+	those of AdaCore [Botcazou] ...yet BOTH
+	methods passed every test I could think of...
+	and I now believe they are identical.
+
+27jun18:
+.) updated Sanguine's AdaPng (to 4.6), 
+	Anisimkov's AdaZlib (to 1.3+);
+
+26jun18:
+.) added W64 build capability;
+
+10jun18:
+.) changed default compiler to AC2018;
+.) gnuAda 730 works also;
+.) changed default SDL libs to shared;
+
+
+9jun18:
+.) created "lcmpg.sh" for AdaGnu v7.3.0;
+	So it works fine...
+	.) using -O3;
+	.) using static SDL2 libs;
+
+6jun18:
+.) added steam coming from the nose on the
+	face of the minotaur using "inverse" fog.
+	See animalObj.fs
+	Nice!
+
+
+
+######################################################
+1jun18: uploaded v1.3.3 to itch, github, indie, SF 
+######################################################
+
+

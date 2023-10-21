@@ -1,0 +1,20 @@
+
+Running from a flash drive
+-----------------------------------
+
+	To run this App from a thumb drive, simply 
+	unzip the 7Z file onto the USB flash drive 
+	formatted to match your system.
+	For Windows you can use a FAT file format. 
+	For Linux you must use an ext4 format. 
+	For Macs use APFS or Mac OS Extended.
+
+	To run from the flash drive, open a terminal 
+	and CD to the flash drive. Then CD to the
+	app-root-directory.
+
+	Then proceed as if you were executing
+	from your hard drive.
+
+-----------------------------------------------
+

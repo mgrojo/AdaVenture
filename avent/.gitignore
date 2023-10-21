@@ -1,0 +1,11 @@
+binw64
+*.so
+*.so.*
+*.dll
+*.exe
+*.o
+*.a
+*.ali
+adaventure_gnu
+adaventure_osx
+*~

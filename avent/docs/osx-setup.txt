@@ -1,0 +1,48 @@
+
+Setup on OS-X
+
+
+If you have a previous installation of the game on your computer, 
+then delete it by typing something like:
+
+	rm -fr <game-installation-directory>/<game-dir>
+
+This will save space on your computer's disk drive, and will 
+help to avoid confusion.  Each download is self-contained.
+
+Choose an installation directory and move the downloaded 7z file there;  
+leaving it in ./Downloads is fine.
+
+For *.7z files, you may use Keka to unpack the game directory.
+
+
+####################### HiDpi Options ##########################
+Note that HighDpi mode on Retina displays is more graphically
+demanding.  So on older hardware you might want to disable
+HighDpi.  One way is to manually edit the file:
+
+	~/<appname>.app/Contents/Info.plist
+
+so that the last line is <false/>.  I.E. instead of
+
+	<key>NSHighResolutionCapable</key>
+	<true/>
+
+you should put
+
+	<key>NSHighResolutionCapable</key>
+	<false/>
+
+Another way is to edit the app startup "info" to begin in 
+Low Resolution.
+
+Note that these methods affect the app started in the Mac way,
+using Finder.  They do NOT affect the app if started from 
+a command line terminal, thusly:		
+
+	adaventure_osx
+
+Currently, AdaVenture is setup so that the above command
+starts the app @ HighDpi because testing seems to indicate
+no noticeable graphical problems on fairly old hardware.
+

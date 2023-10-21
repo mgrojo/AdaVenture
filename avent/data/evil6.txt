@@ -1,0 +1,12 @@
+
+evil6.wav
+
+is a merge, using sox, of two sounds:
+
+1) scaryViolins by lennyboy from freesound.org (cc0)
+	https://freesound.org/people/lennyboy/sounds/244417/
+
+2) swarm-of-roaches by szczur_banshee from freesound.org (cc0)
+	https://freesound.org/people/szczur_banshee/sounds/380769/
+
+
