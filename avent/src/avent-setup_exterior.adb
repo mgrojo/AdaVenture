@@ -1,6 +1,6 @@
 
 --
--- Copyright (C) 2023  <fastrgv@gmail.com>
+-- Copyright (C) 2024  <fastrgv@gmail.com>
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -254,8 +254,8 @@ begin --setup_castle
 		zwkey:= -9.3;
 
 	elsif chapter=4 then
-		xwkey:=-5.0; -- +1.4;
-		zwkey:= 0.5; -- -9.3;
+		xwkey:=-3.0; -- was -5.0 but cistern forced change 7feb24
+		zwkey:= 0.5;
 
 	end if;
 
@@ -368,6 +368,39 @@ begin --setup_castle
 
 
 
+
+-------------------------------------------------------------------
+
+		--new waterfall params [on north wall => z=Zmax]
+
+		--particle-waterfall initialization:
+		myparticles.setrect(wfallp,
+			float(wfxc), float(wfyc),
+				float(wfxr), float(wfyr) );
+
+		--ribbon-waterfall initialization:
+		myribbon.setrect(wfallr, 
+			float(wfxc), float(wfyc),
+				float(wfxr), float(wfyr) );
+
+-------------------------------------------------------------------
+
+	--new cistern top:
+	cyl2texobj.setcyl2(rococo, cisxc, cisyc, ciszc, cisrr );
+
+	nko:=nko+1;
+	koscene(nko):=1;
+	koxlo(nko):= cisxc - cisrr;
+	koxhi(nko):= cisxc + cisrr;
+
+	koylo(nko):= cisyc;
+	koyhi(nko):= float(wfyc);
+
+	kozlo(nko):= ciszc-cisrr;
+	kozhi(nko):= ciszc+cisrr;
+
+
+-------------------------------------------------------------------
 
 
 

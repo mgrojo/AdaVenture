@@ -69,9 +69,17 @@ begin
 		if chapter=2 then
 			gluniform1i(flevid12, foglev7 ); --2
 			gluniform1i(fcolid12, fogclr7 ); --1
+
+--put("Ch2: Setting FogLevl="&glint'image(foglev7)); 
+--put(", FogColr="&glint'image(fogclr7)); new_line;
+
 		else
 			gluniform1i(flevid12, 1+foglev7 ); --  3 ); 
-			gluniform1i(fcolid12, 2+fogclr7 ); --  4 );
+			gluniform1i(fcolid12, 4); -- 3 was a bad color for snake 9feb24
+
+--put("Ch4: Setting FogLevl="&glint'image(1+foglev7)); --Ok
+--put(", FogColr="&glint'image(2+fogclr7)); new_line;
+
 		end if;
 
 		glbindtexture(gl_texture_2d, snake_texid);
@@ -104,8 +112,8 @@ gluniform1fv(zdc05,ndc7,zdc(1)'address);
 		glUniform1i(darkid05, darkness7);
 
 		if chapter=2 then
-		gluniform1i(flevid05, foglev7 ); 
-		gluniform1i(fcolid05, fogclr7 ); 
+		gluniform1i(flevid05, foglev7 ); --2
+		gluniform1i(fcolid05, fogclr7 ); --1
 		else
 		gluniform1i(flevid05, 3 ); 
 		gluniform1i(fcolid05, 4 ); 
@@ -242,6 +250,9 @@ gluniform1i(noso05,noso);
 			pictobj.draw(key2, vertbuff,uvbuff,elembuff); --Black Key
 			glbindtexture(gl_texture_2d, key_texid);
 			pictobj.draw(key0, vertbuff,uvbuff,elembuff); --ghostKey 9apr21
+
+--put("Bkey (x,z): "&float'image(xbkey)&","&float'image(zbkey)); new_line; --(-9,+7)
+
 		end if;
 
 		if not wkeyheld and swkey=7 and not bathaswkey then

@@ -1150,7 +1150,26 @@ procedure initializeNewMazes is separate;
 
 
 
+function nearfog return boolean is
+begin
+	if scene=8 and (not play9) and zme<-8.0 then
+		return true;
+	else
+		return false;
+	end if;
+end nearfog;
 
+function nearwaterfall return boolean is
+	close: constant float := 4.0;
+	dist: float := 
+		fmath.sqrt( sqr(xme-float(wfxc)) + sqr(zme-float(wfzc)) );
+begin
+	if scene=1 and zme>0.0 and dist<close then
+		return true;
+	else
+		return false;
+	end if;
+end nearwaterfall;
 
 
 function snakehiss return boolean is

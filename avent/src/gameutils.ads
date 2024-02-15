@@ -123,6 +123,8 @@ package gameutils is
 	procedure drawMinotaur( dt: gldouble );
 	function angl( x1,y1,z1, x2,y2,z2 : float ) return float;
 
+	function nearfog return boolean;
+	function nearwaterfall return boolean;
 
 	function snakehiss return boolean;
 	function nearsnake return boolean;

@@ -74,7 +74,20 @@ begin
 	hiss := snd4ada.initLoop(
 		Interfaces.C.Strings.New_String("data/hiss-beat.wav"));
 
+
+
+	smallwf := snd4ada.initLoop(
+		Interfaces.C.Strings.New_String("data/smallWF.wav"));
+
+	toxic := snd4ada.initLoop(
+		Interfaces.C.Strings.New_String("data/fs-ultralow.wav"));
+
+
 ------- now for transient sounds ==================================
+
+
+	gameover := snd4ada.initSnd( -- 9feb24
+		Interfaces.C.Strings.New_String("data/freesound_game-over.wav"));
 
 
 

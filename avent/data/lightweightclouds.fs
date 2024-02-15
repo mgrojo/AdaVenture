@@ -6,6 +6,8 @@
 
 ///  Compack code for a 1K demo // Harley
 uniform float time;
+float stime=30.0+time; //reset clock 10feb24
+
 uniform vec2 resolution;
 
 in vec2 mypos;
@@ -28,7 +30,7 @@ float no( in vec3 x )
 
 float fbm( vec3 p )
 {    
-	float f = 0.3*cos(time*0.03);
+	float f = 0.3*cos(stime*0.03);
    f += 0.50000*no( p ); p = p*2.02;    
 	f -= 0.25000*no( p ); p = p*2.03;
    f += 0.12500*no( p ); p = p*2.01;    
@@ -65,7 +67,7 @@ void main( void ) {
 
 	position.y+=0.2;	
 	vec2 coord= vec2((position.x-0.5)/position.y,1.0/(position.y+0.2));
-	coord += time*0.027+1000.;	
+	coord += stime*0.027+1000.;	
 	float q = cloud(vec3(coord*1.0,0.222));
 	vec3 	col =vec3(0.2,0.4,0.5) + vec3(q*vec3(0.2,0.4,0.1));
 	fragColor = vec4( f2(col), 1.0 );

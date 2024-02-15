@@ -1,6 +1,6 @@
 
 --
--- Copyright (C) 2023  <fastrgv@gmail.com>
+-- Copyright (C) 2024  <fastrgv@gmail.com>
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -185,6 +185,7 @@ begin
 
 	pictobj.ldraw(wallmoor, vertbuff,uvbuff,normbuff,elembuff);
 
+
 	glActiveTexture(GL_TEXTURE0);
 
 
@@ -221,6 +222,8 @@ begin
 
 		glUseProgram( pidtex05 );
 
+		gluniform1i(flevid05,0);
+		gluniform1i(fcolid05,0);
 
 gluniform1i(eawe05,0);
 gluniform1i(noso05,0);
@@ -247,8 +250,6 @@ gluniform1i(noso05,0);
 
 		gluniform1i(sampid05,0);
 
-		gluniform1i(flevid05, foglev2 ); 
-		gluniform1i(fcolid05, fogclr2 ); 
 
 
 		if not success then
@@ -273,6 +274,17 @@ gluniform1i(noso05,0);
 		glbindtexture(gl_texture_2d, rug_texid);
 		pictobj.draw(rug, vertbuff,uvbuff,elembuff); --no shine on rug
 
+		--persianArt
+		glbindtexture(gl_texture_2d, art_texid);
+		pictobj.draw(wallpicso, vertbuff,uvbuff,elembuff); --7feb24
+
+		--guest mats 9feb24
+		glbindtexture(gl_texture_2d, mat_texid);
+		pictobj.draw(mat1, vertbuff,uvbuff,elembuff);
+		pictobj.draw(mat2, vertbuff,uvbuff,elembuff);
+		pictobj.draw(mat3, vertbuff,uvbuff,elembuff);
+		pictobj.draw(mat4, vertbuff,uvbuff,elembuff);
+		pictobj.draw(mat5, vertbuff,uvbuff,elembuff);
 
 
 
@@ -324,8 +336,6 @@ gluniform1i(noso05,0);
 		gluniform3f(eyeid09, glfloat(xeye),glfloat(yeye),glfloat(zeye) );
 
 
-		gluniform1i(flevid09, foglev2 ); 
-		gluniform1i(fcolid09, fogclr2 ); 
 
 		glUniform1f(radid09, 0.0 );
 		glbindtexture(gl_texture_2d, adobe_texid); --13oct16
@@ -431,21 +441,6 @@ gluniform1i(noso05,0);
 
 --------- end pillar with arched copper brackets ------------------------------------
 
-
--------- begin blue pool -------------------------------
-
-			--glUseProgram( pidpool13 );
-			--gluniform3f(eyeid13, glfloat(xeye),glfloat(yeye),glfloat(zeye) );
-			--gluniform1i(darkid13, pooldarkness);
-			--gluniform1i(flevid13, foglev2);
-			--gluniform1i(fcolid13, fogclr2);
-			--gluniformmatrix4fv( mvpid13, 1, gl_false, imvp(1,1)'address );
-			--gluniform1f(timeid13, glfloat(currentTime) );
-			--gluniform3f(cenid13, glfloat(mpx(0)), 0.1, glfloat(mpz(0)) );
-			--gluniform3f(radid13, 1.9, 0.1, 1.9 );
-			--gluniform1f(wlevid13, 0.15 ); --water level
-			--newrectsurf.draw(rso,vertbuff);
-			--NOTE: this work fine!
 
 -------- begin reflective pool -------------------------------
 

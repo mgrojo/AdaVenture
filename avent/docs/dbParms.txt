@@ -21,6 +21,8 @@
 	-- 7=>maze7, 8=>lab8, 9=maze9
 	--	any other number => normal start
 
+NOTE: key_x outputs a)scene, b)horiAng, c) (xme,yme,zme)
+
 ==========================================================
 On MacOsx, 
 	adaventure_osx 1 

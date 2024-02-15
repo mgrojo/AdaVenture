@@ -1,6 +1,6 @@
 
 --
--- Copyright (C) 2023  <fastrgv@gmail.com>
+-- Copyright (C) 2024  <fastrgv@gmail.com>
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -355,7 +355,7 @@ gluniform1fv(zdc05,ndc8,zdc(1)'address);
 
 
 
-		if play9 then -- we are returning with chalice
+		if play9 then --EXFILTRATE we are returning with chalice
 
 		----------- draw fireball --------------------------------------
 
@@ -401,7 +401,36 @@ gluniform1fv(zdc05,ndc8,zdc(1)'address);
 
 			-- end fireball roll ------------------------------------------
 
+		else --INFILTRATE
+
+		----------- draw fogball --------------------------------------
+
+			--fogball.vs + fogball.fs
+			glUseProgram(pidfog03); --===============================
+
+			glUniform3f(ieye03, glfloat(xeye), glfloat(yeye), glfloat(zeye));
+
+			glUniform1f(radid03f, glfloat(barrad)); --wRad
+
+			getFireBallPos(xxfb,yyfb,zzfb);
+
+			gluniformmatrix4fv( mvpid03f, 1, gl_false, IMVP(1,1)'address );
+
+			glUniform3f(cenid03f,  --send current centroid to shaders
+				glfloat(xxfb),glfloat(yyfb),glfloat(zzfb) ); --wPos
+
+			fogballobj.draw(fogball,vertbuff,elembuff);
+
+			if fmath.sqrt( sqr(xxfb-xme)+sqr(yyfb-yme)+sqr(zzfb-zme) ) 
+				< barrad/2.0 then
+				imdead_toxicfog:=true;
+				snd4ada.stopLoops;
+			end if;
+
+
 		end if; --play9
+
+
 
 
 
@@ -447,6 +476,10 @@ gluniform1fv(zdc05,ndc8,zdc(1)'address);
 		end if;
 
 	end if; --scene8
+
+
+
+
 
 
 	if scene=8 and minotaurdead then

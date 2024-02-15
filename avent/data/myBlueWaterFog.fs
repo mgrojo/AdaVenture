@@ -1,4 +1,6 @@
 #version 330 core
+// as of 8feb24 this is not in use
+// because I am using a reflective pool instead.
 
 in vec2 UV;
 in vec4 aPos;

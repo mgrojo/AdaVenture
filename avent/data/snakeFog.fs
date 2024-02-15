@@ -17,7 +17,7 @@ uniform int darkness=0; // 0...4=darkest (bkgd)
 const vec4 night = vec4(0.0,0.0,0.0,1.0);
 
 
-
+// indoor maze FOG function:
 const float fStart=0.0;
 const float fEnd=16.0; // normal fog
 const float sEnd= 8.0; // heavy fog

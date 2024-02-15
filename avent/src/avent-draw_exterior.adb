@@ -1,6 +1,6 @@
 
 --
--- Copyright (C) 2023  <fastrgv@gmail.com>
+-- Copyright (C) 2024  <fastrgv@gmail.com>
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -226,10 +226,11 @@ begin
 			rectobj.draw(wallblok(i), vertbuff,uvbuff,elembuff);
 		end loop;
 
+
 		--castle walls
 		glbindtexture(gl_texture_2d, stone_texid);
 		for i in 4..19 loop
-		if i<8 or i>11 then
+		if (i<8 or i>11) then
 			rectobj.draw(wallblok(i), vertbuff,uvbuff,elembuff);
 		end if;
 		end loop;
@@ -694,6 +695,57 @@ begin
 
 ---------- end draw common textured objects----------------------------
 
+
+
+-- update particle falls:
+	myparticles.update(wfallp, float(wfyv), float(currenttime) );
+
+-- update ribbon falls:
+	myribbon.update(wfallr, float(wfyv), float(currenttime) );
+
+-- draw falls:
+	gluseprogram(pidwfall);
+
+	glUniform3f(ieye43, glfloat(xeye),glfloat(yeye), glfloat(zeye) );
+	glUniform1i(flev43, extfoglev); --fog-level 0..2=heavy
+	glUniform1i(fcol43, extfogclr); --fog color 0=none, 1=white, 2=brownish, 4=gray
+	glUniform1i(sprts43, 0);
+	glUniform1i(dark43, extdarkness); --darkness 0..4
+
+	gluniformmatrix4fv(mvp43,1,gl_false,imvp(1,1)'address);
+	gluniform1f(time43, glfloat(currenttime));
+
+
+	--these next 2 merely help to set the fog properly (not to reposition)
+	glUniform3f(icen36, wfxc, wfyc, wfzc ); --xyz-centroid
+
+
+	gluniform1i(flag43,0); --signals ribbon
+	glbindtexture(gl_texture_2d, wfall_texid);
+	myribbon.draw(wfallr, vertbuff, uvbuff, elembuff);
+
+	gluniform1i(flag43,1); --signals particles
+	glbindtexture(gl_texture_2d, white_texid);
+	myparticles.draw(wfallp, vertbuff, uvbuff, elembuff);
+
+
+-- draw cistern:
+
+	glUseProgram(pidrock36);
+	glUniform3f(ieye36, glfloat(xeye),glfloat(yeye), glfloat(zeye) );
+
+	glUniform1i(flev36, extfoglev); --fog-level 0..2=heavy
+	glUniform1i(fcol36, extfogclr); --fog color 0=none, 1=white, 2=brownish, 4=gray
+	glUniform1i(dark36, extdarkness); --darkness 0..4
+
+	glUniform1i(samp36, 0);
+	glUniformMatrix4fv(imvp36, 1, GL_FALSE, imvp(1,1)'address);
+
+	--these next 2 merely help to set the fog properly (not to reposition)
+	glUniform3f(icen36, wfxc, wfyc-wfyr, glfloat(ciszc+cisrr) ); --xyz-centroid
+
+	glBindTexture(GL_TEXTURE_2D, cistern_texid);
+	cyl2texobj.draw(rococo,vertbuff,uvbuff,elembuff);
 
 
 

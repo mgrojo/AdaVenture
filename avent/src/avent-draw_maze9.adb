@@ -153,7 +153,7 @@ gluniform1fv(zdc05,ndc9,zdc(1)'address);
 
 
 -------------------------------------------------------------------
-		--new frame as of 24nov19:
+		--new open-ceiling-frame as of 24nov19:
 		glbindtexture(gl_texture_2d, skylite_texid);
 		pictobj.draw(roz,vertbuff,uvbuff,elembuff);
 -------------------------------------------------------------------

@@ -1,6 +1,6 @@
 
 --
--- Copyright (C) 2023  <fastrgv@gmail.com>
+-- Copyright (C) 2024  <fastrgv@gmail.com>
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -115,7 +115,8 @@ begin
 ---------------------------------end maze def
 
 	-- setup ceiling for fancy fragshader:
-	rectxobj.setrect(rox,0.0,iymax-0.01,0.0, ixmax,0.01,izmax);
+	--rectxobj.setrect(rox,0.0,iymax-0.01,0.0, ixmax,0.01,izmax);
+	-- fttb: unused!
 	-- no texture needed here;  fancy fragshader used instead
 
 --------------------------------------------------------

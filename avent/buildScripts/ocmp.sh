@@ -18,7 +18,7 @@ else
 	mkdir obj
 fi
 
-export GROOT=/Users/rufascube/opt/GNAT/2018/bin
+export GROOT=$HOME/opt/GNAT/2018/bin
 export PATH=$GROOT:$PATH
 
 

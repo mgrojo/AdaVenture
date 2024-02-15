@@ -1,5 +1,5 @@
 --
--- Copyright (C) 2023  <fastrgv@gmail.com>
+-- Copyright (C) 2024  <fastrgv@gmail.com>
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -63,6 +63,7 @@ with avatarolay;
 with pictobj;
 with twictobj;
 with cylobj;
+with cyl2texobj;
 
 with holesurfobj;
 
@@ -201,11 +202,11 @@ procedure getKeyInputs( mainWin : access GLFWwindow ) is separate;
 
 
 
-procedure aventure( 
+procedure aventure( --called from adaventure.adb
 	inchapter: integer; 
 	jump: integer:=0;
 	resume: boolean:=false;
-	HiRes: boolean:=false
+	HiRes: boolean:=false --caller sends TRUE, unless cmdLnPrm=0
 	) is
 
 
@@ -231,7 +232,7 @@ begin --adaventure
 	new_line;
 
 
-	first_prep(HiRes);  -- main program setup
+	first_prep(HiRes);  -- main program setup; hires=true unless cmdLnPrm=0
 	-- NOW, we may begin tesing for GLerrors
 
 
@@ -2147,6 +2148,32 @@ end if; -- not bugstarted
 			ftex.print2d("Get Away! Scarabs are hungry!",0.1,0.75,1.5,fontcol);
 		end if;
 
+
+---------------- toxicFog handler ----------------------------------
+
+		if nearfog then
+			if not toxicplaying then
+				toxicplaying:=true;
+				snd4ada.playLoop(toxic);
+			end if;
+		elsif toxicplaying then
+			toxicplaying:=false;
+			snd4ada.stopLoop(toxic);
+		end if;
+
+------------------ waterfall handler -------------------------------
+
+		if nearwaterfall then
+			if not wfplaying then
+				wfplaying:=true;
+				snd4ada.playLoop(smallwf);
+			end if;
+		elsif wfplaying then
+			wfplaying:=false;
+			snd4ada.stopLoop(smallwf);
+		end if;
+
+
 -----------------------snake handler logic begin-------------------------
 
 		if snakehiss then
@@ -2356,6 +2383,18 @@ end if; -- not bugstarted
 			--delay exit so users reads message & sees screenbugs:
 			if currentTime-tstart>4.0 then userexit:=true; end if;
 
+
+elsif imdead_toxicfog then --9feb24
+			userexit:=true;
+			snd4ada.playSnd(gameover); -- asphyxiation
+			ftex.print2d("ToxicFog Killed You!", 0.3, 0.75, 1.5,fontcol);
+
+			---------------------------------------------------------
+			glflush;
+			glfwSwapBuffers( mainWindow );
+			---------------------------------------------------------
+
+			delay 4.0; --time to read above message
 
 
 		elsif imdead_fireball then

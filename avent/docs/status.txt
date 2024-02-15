@@ -15,20 +15,56 @@ Linux Build: AdaCore2016 on mint
 ==========================================================
 todo:
 
-.) rebuild on OSX, Windows; then deliver
+.) a bit more regression testing...
+	(I already found & fixed "cleanup" errors & bad fogcolr)
 
+.) more decorations inside castle...cushions?
+
+.) [if I can ] figure out how to make disappearing suds.
+
+	Then put a copper spout inside castle so an indoor 
+	waterfall pours into the pool's east side.
+
+==========================================================
+Other Ideas
+
+.) I should insert an elevator to ascend from lab8 up to M9. 
+	Likewise, I need a down elevator into sunken mazes
+	from castle grounds.
+
+---------------------------------------------------------------
+.) noticed Uru ribbon waterfall uses a nearer homogeneous
+	white texture that is simply translucent.
+	Have not figured out how Uru makes the perfect suds
+	moving away from waterfall splashing into a lake...
+	but not particles. Note that I found a new & great
+	foamSeamless* under ~assetsPix/OpenGameArt.Org/ccby3/.
+
+---------------------------------------------------------------
+
+.) add waterfalls/rivers...
+	a) to exterior mountains; OR...
+	b) to new free-roam jungle/forest scene that precedes mazes;
+		similar to uru-utah, or tr3 jungle, or rosella-forest.
+		.) anthropomorphic trees/cactii
+		.) sounds of beasts
+		.) surreal starry sky
+		.) ground-hugging fog
+		.) ~/funPics/fun/baUglyTree2.jpg
+		.) see also ~/dev/DarkForest/
+
+	Try adding a down staircase @ end of jungle entry to mazes.
+	Then need to consider what "sky/ceiling" I need in 9th maze;
+	or else I need upward stairs to reach m9.
+
+	Current Ceilings:
+	m7:   jungle overgrowth
+	lab8: roots
+	m9:   dark blue with fast moving clouds
+
+---------------------------------------------------------------
 .) need a regression test to check 3rd person avatar behavior
 	in various modes for camera slew speed.
-
-.) Needs a dark scary forest! Not part of "adventure" but
-	is a staple in most every other adventure game.
-	...as a short "tunnel"/labyrinth entryway to the mazes:
-	.) anthropomorphic tree/cactus
-	.) sounds of beasts
-	.) surreal starry sky
-	.) ground-hugging fog
-	.) ~/funPics/fun/baUglyTree2.jpg
-	.) see also ~/dev/DarkForest/
 
 .) regression test lab8 before & after M9.
 .) regression test zoomwheel (z-key to normalize).
@@ -38,7 +74,63 @@ todo:
 	then allow bat to drop key into wall.
 
 ==========================================================
+	updates below
+==========================================================
 
+11feb24
+.) improved fogball to true billboarded logic. Looks perfect.
+
+10feb24
+.) M9 clouds improved simply by resetting clock ahead.
+.) added sounds for waterfall within 4.0 units.
+.) added low sound for toxic fog.
+
+9feb24
+.) repaired bad fog color in M7. (cannot use 3-purple)
+	wherever a snake might be. Also restored badly simplified
+	shader to previous state.
+.) test proximity to toxic-cloud; hugging the wall should
+	allow passage; center walking should result in death.
+
+.) added hospitality rugs around castle floor.
+.) Lab8: created moving spherical fog in place of fireball
+	upon first entry. A key to good appearance & function was
+	the "discard" statement, so that the transparent portions
+	do not interfere with other nearby texture objects.
+
+8feb24
+.) made final corrections to waterfall & cistern shaders 
+	to properly handle fog.
+.) cleaned up some shaders, particularly those with unused
+	fog parms. Removed use of corresponding flev,fclr
+	uniforms in Ada code. Regression tested.
+.) ensured all fog ftns matched: outdoors & indoors.
+
+
+7feb24
+.) added Zoroastrian Art in castle.
+.) use AG.zpm, textured without top 
+	[half buried] as a cistern...nice but...
+	Problem: no top allows insides to disappear!
+	So I now draw both sides of textured sides. Nice!
+.) assured that cistern does NOT ever block white key.
+
+7feb24
+.) added [rockobj] cistern...problem: need slot in top!
+
+6feb24
+.) added waterfall from castle roof.
+
+19jan24
+.) Cleaned up actions regarding HiDpi/LoDpi;
+	Here HiDpi [if available] is default 
+	and a command line parameter of "0"
+	forces LoDpi on OSX (and linux and Windows too).
+
+
+#######################################################
+20oct23: uploaded v2.3.9 (w64) : git,SF,indie,itch,jolt
+#######################################################
 
 20oct23
 .) Added check of window size when displaying list of saved games.

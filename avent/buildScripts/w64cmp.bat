@@ -1,5 +1,5 @@
 
-rem -- Copyright (C) 2023  <fastrgv@gmail.com>
+rem -- Copyright (C) 2024  <fastrgv@gmail.com>
 rem --
 rem -- This program is free software: you can redistribute it and/or modify
 rem -- it under the terms of the GNU General Public License as published by
@@ -16,8 +16,6 @@ rem -- at <http://www.gnu.org/licenses/>.
 
 
 rem using 64-bit GNU Ada:
-rem PATH=c:\msys64\mingw64\bin;%PATH%  ...OR...
-rem PATH=c:\Users\fastr\opt\gnat-x86_64-windows64-12.1.0-2\bin;%PATH%
 rem First, use setpath64
 
 del obj\*

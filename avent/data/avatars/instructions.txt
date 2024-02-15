@@ -1,0 +1,7 @@
+Instructions to use any avatar in this directory
+
+Copy the png file of your choice to ../skin.png
+
+eg: cp indi.png ../skin.png
+to use IndianaJones avatar
+

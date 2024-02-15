@@ -75,8 +75,6 @@ void main(){
 	color = mix(color, night, df);
 
 	if(foglevl>0) {
-		//const float yc=0.0;
-		//float dist = exp(-0.9*abs(aPos.y-yc)) * length( aPos.xyz-eyePos );
 
 		const float yc=-0.5; // -0.5 = min land_alt
 		float dist = exp(-1.0*abs(aPos.y-yc)) * length( aPos.xyz-eyePos );

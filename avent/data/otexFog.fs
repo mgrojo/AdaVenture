@@ -1,6 +1,6 @@
 #version 330 core
 
-// fragment shader
+// fragment shader for trees
 in vec2 UV;
 
 in vec4 aPos;

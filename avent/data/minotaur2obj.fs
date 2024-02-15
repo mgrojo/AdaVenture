@@ -22,12 +22,17 @@ void main(){
 	float et = period*fract(mytime); // [0..2)
 	float opac = (period-et)/period; // [0..1)
 
-	// exact nostril coords:
+	// exact nostril coords
 	const float ny=14.5/32.0;
 
 	// put smoke centroids more outboard:
 	const float lx= 9.5/64.0;
 	const float rx=14.5/64.0;
+
+	// In other words:
+	// UVlf = (  9.5/64, 14.5/64 ) 
+	// UVrt = ( 14.5/64, 14.5/64 )
+	//see minotaurSkin2.png
 
 	// this generates [e=2] ellipses w/horizontal major axis:
 	vec2 ldist = vec2( 64.0*(UV.x-lx), 64.0*(UV.y-ny) );

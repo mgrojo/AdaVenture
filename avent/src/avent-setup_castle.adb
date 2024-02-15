@@ -1,6 +1,6 @@
 
 --
--- Copy2right (C) 2023  <fastrgv@gmail.com>
+-- Copy2right (C) 2024  <fastrgv@gmail.com>
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -83,7 +83,6 @@ begin
 		0.01,       y2r, z2r*0.5, 
 		j1,j2,j3,j4,j5,j6);
 
-
 -----------------------------------
 	--Korla Pandit
 	--pictobj.setrect(korla,
@@ -117,6 +116,17 @@ begin
 		koxlo(nko),koxhi(nko), koylo(nko),
 		koyhi(nko), kozlo(nko),kozhi(nko) );
 
+
+	--zoroastrian art on SouthWall-west (xc,yc,zc)     (xr,yr,zr)
+	pictobj.setrect(wallpicso, -2.5, 1.2, -10.0+0.1, 1.0,0.7,0.01, j1,j2,j3,j4,j5,j6);
+
+	pictobj.setrect(mat1, -8.0, y2c-y2r+0.01, -9.5, 0.6, 0.01, 0.3, j1,j2,j3,j4,j5,j6);
+
+	pictobj.setrect(mat2, -8.0, y2c-y2r+0.01, -0.5, 0.6, 0.01, 0.3, j1,j2,j3,j4,j5,j6);
+	pictobj.setrect(mat3, -6.0, y2c-y2r+0.01, -0.5, 0.6, 0.01, 0.3, j1,j2,j3,j4,j5,j6);
+
+	pictobj.setrect(mat4, -4.0, y2c-y2r+0.01, -0.5, 0.6, 0.01, 0.3, j1,j2,j3,j4,j5,j6);
+	pictobj.setrect(mat5, -2.0, y2c-y2r+0.01, -0.5, 0.6, 0.01, 0.3, j1,j2,j3,j4,j5,j6);
 
 	--tapestry
 	pictobj.setrect( 

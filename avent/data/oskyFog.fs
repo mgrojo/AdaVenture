@@ -22,7 +22,7 @@ const vec4 vDfogColor=vec4(0.3,0.3,0.3,1.0); //normal gray
 const vec4 vSootColor=vec4(50.0/255,30.0/255,10.0/255,1.0); // brownish soot
 const vec4 vMystColor=vec4(0.7,0.5,0.7,1.0); // purplish fog
 
-
+//special fog treatment for this cubemap based on elevation angle
 
 void main()
 {

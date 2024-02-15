@@ -9,6 +9,65 @@ begin
 
 
 
+----------- new fogball ------------------------------------------------
+
+
+	pidfog03:=loadshaders("./data/fogball.vs", "./data/fogball.fs");
+	mvpid03f := glgetuniformlocation(pidfog03, pmvp);
+	cenid03f  := glgetuniformlocation(pidfog03, pwPos);
+	radid03f := glgetuniformlocation(pidfog03, pwRad);
+	ieye03 := glGetUniformLocation( pidfog03, pme ); --pme new
+
+	fogballobj.setrect(fogball);
+
+
+
+------------------------------------------------------------------------
+	--new waterfalls
+	--white_texid:= loadPng(mirror,"data/white.png"); --bubble.png
+	white_texid:= loadPng(mirror,"data/spark.png");
+
+	wfall_texid:= loadPng(mirror,"data/wfall.png"); 
+
+-- ribbon + particle falls:
+	pidwfall := loadshaders("data/waterfall.vs","data/waterfall.fs");
+	mvp43 := glgetuniformlocation(pidwfall, pmvp);
+	time43  := glgetuniformlocation(pidwfall, ptime);
+	flag43:=glgetuniformlocation(pidwfall,piflag);
+
+	sprts43 := glGetUniformLocation( pidwfall, psprit ); --sampler
+	ieye43 := glGetUniformLocation( pidwfall, pme ); --pme new
+	flev43 := glGetUniformLocation( pidwfall, pmylev );
+	fcol43 := glGetUniformLocation( pidwfall, pmyclr );
+	dark43 := glGetUniformLocation( pidwfall, pdark );     
+
+	--irad43 := glGetUniformLocation( pidwfall, pwrad );
+	icen43 := glGetUniformLocation( pidwfall, pwpos );
+
+------------------------------------------------------------------------
+
+	--cistern_texid:= loadPng(mirror,"data/darkstonewall.png"); 
+	cistern_texid:= loadPng(mirror,"data/Sand.png"); 
+
+-- new cistern
+	pidrock36:= LoadShaders( "data/rockFog.vs", "data/rockFog.fs" );
+
+	imvp36 := glGetUniformLocation( pidrock36, pmvp );     
+	samp36 := glGetUniformLocation( pidrock36, pmyts ); --sampler
+
+	ieye36 := glGetUniformLocation( pidrock36, pme ); --pme new
+	flev36 := glGetUniformLocation( pidrock36, pmylev );
+	fcol36 := glGetUniformLocation( pidrock36, pmyclr );
+	dark36 := glGetUniformLocation( pidrock36, pdark );     
+	--irad36 := glGetUniformLocation( pidrock36, pwrad );
+	icen36 := glGetUniformLocation( pidrock36, pwpos );
+
+
+------------------------------------------------------------------------
+
+
+
+
 
 --copper arches begin----------------------------------------------------
 	pidzpm34a:= LoadShaders( "data/rusty.vs", "data/rusty.fs" );
@@ -226,7 +285,7 @@ phole34a:=glGetUniformLocation( pidzpm34a, phole);
 
 
 
-
+-- used for many normally textured objects:
 	pidtex05 := loadshaders("./data/texobjFog.vs", "./data/texobjShine.fs");
 
 ndc05:=glgetuniformlocation(pidtex05, new_string("numDC") );
@@ -270,7 +329,9 @@ zdc05:=glgetuniformlocation(pidtex05, new_string("zdc") );
 	ceil_texid := loadPng(mirror,"data/mosqueceilSQ.png"); 
 	floor_texid  := loadPng(mirror,"data/bricksE.png");
 
+	mat_texid  := loadPng(mirror,"data/carpet.png");
 	rug_texid  := loadPng(mirror,"data/persiancarpetdark2.png");
+	art_texid  := loadPng(mirror,"data/persianWall.png");
 
 	--Bad Beetles:
 	--bug_texid  := loadPng(mirror,"data/beetleHorned.png");
@@ -433,8 +494,6 @@ end if;
 	cenid09 := glGetUniformLocation(pidhole09, phole); --// vec3 hole
 
 	darkid09 := glGetUniformLocation( pidhole09, pdark );
-	flevid09 := glGetUniformLocation( pidhole09, pmylev );
-	fcolid09 := glGetUniformLocation( pidhole09, pmyclr );
 
 	-- lighting effects
 	lFlagid09 := glGetUniformLocation( pidhole09, pflag );

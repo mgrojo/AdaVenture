@@ -1,6 +1,6 @@
 
 --
--- Copyright (C) 2023  <fastrgv@gmail.com>
+-- Copyright (C) 2024  <fastrgv@gmail.com>
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -55,12 +55,18 @@ with Ada.Strings.Unbounded.Text_IO;
 
 with shader;  use shader;
 
+with particleobj;
+with ribbonobj;
+
 with cylobj;
 with droomobj;
 with bugobj;
 with rectobj;
 with rectxobj;
 with rectxfineobj;
+with cloudobj;
+--with rectfineobj;
+with cyl2texobj;
 with rectsurfobj;
 with avatarolay;
 with pictobj;
@@ -140,6 +146,16 @@ package gametypes is
 
 	package ellobj is new ellipsoid(20,20);
 	jupit : ellobj.eloid;
+
+
+
+	--package myparticles is new particleobj(40,80); --#hori, #vert
+	package myparticles is new particleobj(20,40); --#hori, #vert
+	wfallp: myparticles.partix;
+
+	package myribbon is new ribbonobj(40); --# vert.parts
+	wfallr: myribbon.ribbon;
+
 
 
 
@@ -409,6 +425,7 @@ package gametypes is
 	sword,
 	sword0, --ghostSword
 	pedestal,
+	wallpicso, mat1,mat2,mat3,mat4,mat5,
 	rug, ceil,
 	porch, key1, key2, key3,
 	key0, --ghostKey
@@ -483,11 +500,15 @@ package gametypes is
 
 	intro: boolean := true;
 
+	toxicplaying,
+	wfplaying,
 	hissbeat,
 	drawchalice, chalicegone: boolean := false;
 
 
 ---------- begin texture pointers --------------------------------
+	cistern_texid,
+	white_texid, wfall_texid,
 	rosequartz_texid, copper_texid,
 	--bluewood_texid,
 	skylite_texid,
@@ -536,7 +557,7 @@ package gametypes is
 	bat1_texid, bat2_texid,
 	chalice_texid, sword_texid,
 	cherry_texid, room_texid, ceil_texid, floor_texid, 
-	rug_texid, bug_texid,
+	art_texid, mat_texid, rug_texid, bug_texid,
 	wood_texid, 
 	key_texid, 
 	gkey_texid, bkey_texid,	gate_texid, zoro_texid,
@@ -570,8 +591,32 @@ package gametypes is
 
 -- begin string pointers for getUniformLocation: ---------------------
 
-	--phrad  : chars_ptr := new_string("hrad"&ascii.nul);
-	--phpos  : chars_ptr := new_string("hole"&ascii.nul);
+
+
+	--waterfall parms:
+	wfxc: constant glfloat := -5.0;
+	wfyc: constant glfloat :=  1.7;
+	wfzc: constant glfloat :=  0.272;
+
+	wfxr: constant glfloat :=  0.08;
+	wfyr: constant glfloat :=  2.1;
+	wfyv: constant glfloat :=  2.0;
+
+
+	--cistern parms:
+	cisxc: constant float := float(wfxc);
+	cisyc: constant float := float(wfyc-wfyr) - 0.1;
+	ciszc: constant float := 0.59;
+	cisrr: constant float := 0.7;
+
+
+-- begin string pointers for getUniformLocation:
+
+	--for new waterfall:
+	piflag: chars_ptr := new_string("iflag"&ascii.nul);
+
+
+
 
 	phang : chars_ptr := new_string("horiAng"&ascii.nul);
 
@@ -595,7 +640,10 @@ package gametypes is
 
 	pmylev : chars_ptr := new_string("foglevl"&ascii.nul);
 	pmyclr : chars_ptr := new_string("fogcolr"&ascii.nul);
+	pme : chars_ptr := new_string("eyePos"&ascii.nul);
 
+
+	psprit : chars_ptr := new_string("sprite"&ascii.nul);
 	pmyts : chars_ptr := new_string("myTextureSampler"&ascii.nul);
 	popac : chars_ptr := new_string("NormalOpacity"&ascii.nul);
 	pcubemap : chars_ptr := new_string("CubeMap"&ascii.nul);
@@ -634,9 +682,25 @@ package gametypes is
 
 --------- begin new PIDs/UIDs ---------------------
 
+
+	--new waterfall, cistern
+	pidwfall, pidrock36: gluint;
+	ieye36,flev36,fcol36,
+	imvp36,samp36,dark36,
+	icen36,
+	mvp43,time43,flag43,
+	sprts43,ieye43,flev43,
+	fcol43,dark43,icen43
+	: glint;
+
+
+
+
+
 	pidskyb01,
 	pidterra02,
 	pidfire03,
+	pidfog03,
 	pidstar04,
 	pidtex05,
 	pidcup06,
@@ -663,7 +727,8 @@ package gametypes is
 	fcolid02, flevid02, eyeid02,
 	mvpid02, sampid02, darkid02,
 	
-	mvpid03, sampid03, opacid03, timeid03, cenid03, radid03,
+	mvpid03, sampid03, opacid03, timeid03, cenid03, radid03, 
+	radid03f, mvpid03f, cenid03f, ieye03,
 
 	timeid04,resid04,mvpid04,
 
@@ -685,7 +750,7 @@ package gametypes is
 	radid08, cenid08,
 
 	mvpid09,sampid09,radid09,cenid09,
-	darkid09,flevid09,fcolid09,
+	darkid09,
 	lflagid09,lcolrid09,lposid09,eyeid09,ldifid09,lspcid09,
 
 	mvpid10,resid10,timeid10,
@@ -813,7 +878,8 @@ heralded, success : boolean := false;
 	x6snake,z6snake, x5snake,z5snake : float;
 
 
-	warning1, 
+	warning1,
+	imdead_toxicfog,
 	imdead_fireball,
 	imdead_minotaur,
 	imdead_dragon, imdead_snake: boolean := false;
@@ -873,9 +939,9 @@ heralded, success : boolean := false;
 	evilBugs, introsong,
 	wind1, atmos8, dang8, tmpl4,
 	stone, down, up, die, eat, roar, won,
-	hiss, misr, turk, angv, ibn,
+	hiss, misr, turk, angv, ibn, smallwf, toxic,
 	water, medusascream, girlyscream,
-	monsterScream, womanScream: glint;
+	monsterScream, womanScream, gameover: glint;
 
 
 	resfile : string := "./data/resume_av.txt";
@@ -1011,10 +1077,18 @@ heralded, success : boolean := false;
 	fireball : fireballobj.rectfine;
 	barrad: constant float := 0.5; --radius of fireball
 
+	package fogballobj is new cloudobj(16);
+	fogball: fogballobj.cloud;
 
 -----------------------------------------------------------
 
+	-- 4 is nice but very round, 
+	-- 2 is angular & interesting
+	--package myrockobj is new rectfineobj(4); -- must now be EVEN
+	--rococo : myrockobj.rectfine; --used here for cistern @ rear castle
+	rococo: cyl2texobj.ball;
 
+-----------------------------------------------------------
 
 
 	-- Camera Standoff Parms:
